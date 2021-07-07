@@ -1,0 +1,7 @@
+requests~=2.25.1
+PyYAML~=5.4.1
+pymorphy2
+nltk
+pandas
+asyncpgsa~=0.27.1
+sqlalchemy~=1.3.20
