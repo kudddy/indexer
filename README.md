@@ -1,15 +1,3 @@
->>> import asyncpg
->>> import asyncio
->>> async def run():
-...     con = await asyncpg.connect(user='postgres')
-...     result = await con.copy_records_to_table(
-...         'mytable', records=[
-...             (1, 'foo', 'bar'),
-...             (2, 'ham', 'spam')])
-...     print(result)
-...
->>> asyncio.get_event_loop().run_until_complete(run())
-'COPY 2'
 ## Типовые операции с таблицей
 переименование таблицы
 ```
@@ -35,4 +23,16 @@ async def run():
              (2, 'ham', 'spam')])
      print(result)
 asyncio.get_event_loop().run_until_complete(run())
+```
+как создать копию таблицы без данных
+```
+create table dupe_vacancy_content as (select * from cache_index) with no data
+```
+как создать копию таблицы с данными
+```
+create table dupe_vacancy_content as (select * from cache_index)
+```
+переименование таблицы
+```
+alter table cache_index rename to cache_inde;
 ```

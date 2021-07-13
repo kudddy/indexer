@@ -13,6 +13,19 @@ def structure_normalization(d: list) -> dict:
     return local_dict
 
 
+def chunks(array, chunk_size):
+    """
+    Ф-ция возвращает сгруппированный по ключу словарь. Ф-цию нужно обернуть в list()
+    Аrgs:
+        type(list)- array : список
+        type(int) - chunk_size : коэф от которого зависит какой размер батча
+    Returns:
+        n/a
+    """
+    for i in range(0, len(array), chunk_size):
+        yield array[i:i + chunk_size]
+
+
 def remove_html_in_dict(text):
     html_pattern = re.compile('<.*?>')
     title_pattern = re.compile(r'([a-zа-я](?=[A-ZА-Я])|[A-ZА-Я](?=[A-ZА-Я][a-zа-я]))')

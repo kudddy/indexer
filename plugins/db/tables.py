@@ -30,26 +30,9 @@ class CUBE(UserDefinedType):
         return "CUBE"
 
 
-comments = Table(
-    'comments',
-    metadata,
-    Column('id', Integer, primary_key=True),
-    Column('file', String),
-    Column('comment', String),
-    Column('date', Date)
-)
-
-feedback = Table(
-    'feedback',
-    metadata,
-    Column('id', Integer, primary_key=True),
-    Column('comment', String),
-    Column('date', Date)
-
-)
-
+# TODO изменено название таблицы для теста
 vacancy_content = Table(
-    'vacancy_content',
+    'dupe_vacancy_content',
     metadata,
     Column('id', Integer),
     Column('title', String),
@@ -65,14 +48,14 @@ vacancy_content = Table(
 )
 
 index_map = Table(
-    'index_map',
+    'dupe_index_map',
     metadata,
     Column('extended_index', String),
     Column('original_index', String)
 )
 
 cache_index = Table(
-    'cache_index',
+    'dupe_cache_index',
     metadata,
     Column('original_index', String),
     Column('vacancy_id', Integer)
